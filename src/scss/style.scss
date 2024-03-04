@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+//------------- vars
+
+@import "./vars";
+
+//------
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Manrope", sans-serif;
+    font-size: calc(10px + 8 * (100vw / $container-width)); //12
+    color: $primary-black;
+
+    body,
+    html,
+    #wrapper {
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+    }
+
+    #wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    ul,
+    ol {
+        list-style-type: none;
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    max-width: $container-width + px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    flex: 1;
+
+    .modal {
+        display: flex;
+        gap: 35px;
+        max-width: 869px;
+        width: 100%;
+
+        &__left {
+            max-width: 348px;
+            width: 100%;
+
+            .modal__image {
+                position: relative;
+                width: 100%;
+
+                &>img {
+                    width: 100%;
+                }
+
+                &_name {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                }
+            }
+
+            .modal__info {
+                margin-top: 45px;
+
+                &_title {
+                    font-weight: 400;
+                }
+
+                &_items {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    margin-top: 12px;
+                }
+
+                &_item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &>*:first-child::first-letter {
+                        text-transform: uppercase;
+                    }
+
+                    &>* {
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+
+        &__right {
+            flex: 1 1 489px;
+            max-width: 489px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .modal__title {
+                margin-bottom: 12px;
+
+                font-weight: bold;
+                font-size: 24px;
+                color: $primary-black;
+                line-height: 140%;
+            }
+
+            .modal__subtitle {
+                line-height: 140%;
+                color: $secondary-color;
+                font-weight: 400;
+            }
+
+            .sauces {
+                padding-top: 24px;
+                margin-top: 24px;
+                border-top: 1px solid #E6E6E6;
+                flex: 1 1 auto;
+
+                &__title {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 12px;
+
+                    &_hint {
+                        font-size: calc(14px + 4 * (100vw / $container-width));
+                        font-weight: bold;
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    &_free {
+                        font-size: calc(12px + 4 * (100vw / $container-width));
+                        font-weight: 400;
+                        color: $secondary-color;
+                    }
+                }
+
+                &__items {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                }
+
+                &__item {
+                    flex: 1 1 auto;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px 18px;
+                    max-height: 49px;
+                    border-radius: 5px;
+
+                    background-color: $dark-gray;
+
+                    &>*::first-letter {
+                        text-transform: uppercase;
+                    }
+
+                    &_info {
+                        display: flex;
+                        gap: calc(5px + 5 * (100vw / $container-width));
+
+                        .sauces__name::first-letter {
+                            text-transform: uppercase;
+                        }
+
+                        .sauces__price {
+                            color: $secondary-color;
+                        }
+                    }
+
+                    &_count {
+                        display: flex;
+                        gap: calc(10px + 15 * (100vw / $container-width));
+
+                        .sauces__item_value {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+
+                        &>button {
+                            outline: none;
+                            border: none;
+
+                            font-weight: 400;
+                            background-color: transparent;
+                            font-size: calc(24px + 12 * (100vw / $container-width));
+                            cursor: pointer;
+
+                            &.disabled {
+                                opacity: .3;
+                                cursor: auto;
+                            }
+                        }
+                    }
+                }
+
+                &__result {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 20px;
+
+                    &_price {
+                        font-size: calc(22px + 10 * (100vw / $container-width));
+                        font-weight: bold;
+                    }
+
+                    &_add {
+                        height: calc(32px + 33 * (100vw / $container-width));
+                        max-width: 176px;
+                        flex: 1 1 auto;
+                        outline: none;
+                        border: none;
+                        border-radius: 40px;
+
+                        font-weight: 300;
+                        color: white;
+                        background-color: $primary-red;
+                        cursor: pointer;
+
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    @media (max-width: 400px) {
+                        padding: 0 10px 20px 0;
+                    }
+                }
+
+            }
+
+            @media (max-width: 900px) {
+                max-width: 348px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            flex-direction: column;
+            align-items: center;
+
+            .modal__title,
+            .modal__subtitle {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 396px) {
+            padding: 20px 10px 0 10px;
+        }
+
+    }
+
+}
