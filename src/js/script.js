@@ -19,7 +19,10 @@ function changeSauces(totalCount, price, free) { //Change result price, 0 or 1 f
             e.innerText = `+${totalCount?60:0} ₽`;
         })
     }
-    resultPrice.innerText = `${default_price + sauce_price * (totalCount - 1)} ₽`
+
+    const total = totalCount === 0? 0: totalCount - 1;
+
+    resultPrice.innerText = `${default_price + total * sauce_price} ₽`
     
 
 }
@@ -92,6 +95,7 @@ window.onload = () => {
 }
 
 function changeStateButtonOnClick(element, saucePrice, sauceFree, isIncrease) {
+    
     if(isIncrease) {
         element.value += 1;
         totalCount+=1;
@@ -100,7 +104,6 @@ function changeStateButtonOnClick(element, saucePrice, sauceFree, isIncrease) {
         element.value -= 1;
         totalCount -= 1;
     }
-
     
     element.changeEl.innerText = element.value;
     changeSauces(totalCount, saucePrice, sauceFree);
