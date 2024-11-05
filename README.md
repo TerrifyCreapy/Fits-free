@@ -3,4 +3,5 @@ The adaptive markup for product card. The first sause is free and the next one i
 
 [The link to this project](https://terrifycreapy.github.io/Fits-free/)
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/4beecc04-38a3-4bea-9838-ee022766c6af)
+
